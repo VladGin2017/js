@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Simple calculator</title>
+</head>
+<body>
+    <h1 class="main-heading">A simple calculator</h1>
+    <p class="main-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit aut quia quidem tenetur. 
+        Inventore, distinctio nulla ratione, animi soluta aspernatur, omnis iusto porro beatae nemo velit 
+        id incidunt nihil tempore.</p>
+    <div class="main-calc">
+        <div class="input-fields">
+            <input type="text" id="number1" class="number-input">
+            <input type="text" id="number2" class="number-input">
+        </div>
+        <div class="operation-btns">
+            <button id="division" onclick="op='/'" class="op-btn">/</button>
+            <button id="multiplic" onclick="op='*'" class="op-btn">X</button>
+            <button id="addition" onclick="op='+'" class="op-btn">+</button>
+            <button id="subtrac" onclick="op='-'" class="op-btn">-</button>
+        </div>
+        <button onclick="calculate()" class="result-btn">Расчитать!</button>
+        <p id='result' class="result-calc"></p>
+
+    </div>
+    <script>
+        let op;
+        function calculate() {
+
+            let result;
+            let num1 = Number(document.getElementById('number1').value);
+            let num2 = Number(document.getElementById('number2').value);
+            if (document.getElementById('number1').value == '' || document.getElementById('number2').value == '') {
+                alert('ENTER NUMBERS!')
+                let Eerror = 'Введите числа!';
+                document.getElementById('result').innerHTML = Eerror;;
+            } 
+            else {
+                if (op == '+') {
+                    result = num1 + num2;
+                }
+                if (op == '-') {
+                    result = num1 - num2;
+                }
+                if (op == '/') {
+                    result = num1 / num2;
+                }
+                if (op == '*') {
+                    result = num1 * num2;
+                }
+                document.getElementById('result').innerHTML = result;
+            }
+        }
+    </script>
+</body>
+</html>
